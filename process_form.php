@@ -3,10 +3,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Load Composer's autoloader
-require 'vendor/autoload.php'; // Make sure the path is correct
+require 'vendor/autoload.php'; // Ensure this path is correct
 
 // Create an instance of PHPMailer
-$mail = new PHPMailer(true); 
+$mail = new PHPMailer(true);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -17,16 +17,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Server settings
         $mail->isSMTP();                                            // Set mailer to use SMTP
-        $mail->Host       = 'smtp.example.com';                    // Specify main and backup SMTP servers
+        $mail->Host       = 'smtp.gmail.com';                     // Specify main and backup SMTP servers
         $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-        $mail->Username   = 'tozzienk03@gmail.com';              // SMTP username
-        $mail->Password   = 'Tozzie@3002';                 // SMTP password
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;        // Enable TLS encryption, `ssl` also accepted
+        $mail->Username   = 'your-email@gmail.com';                // Your Gmail address
+        $mail->Password   = 'your-email-password';                 // Your Gmail password or App Password
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;        // Enable TLS encryption
         $mail->Port       = 587;                                    // TCP port to connect to
 
         // Recipients
-        $mail->setFrom('your-email@example.com', 'Your Name');    // Your email and name
-        $mail->addAddress($email);                                 // Add the user's email
+        $mail->setFrom('your-email@gmail.com', 'Your Name');      // Your name
+        $mail->addAddress('tozziemk03@gmail.com');                 // The email address where messages will be sent
 
         // Content
         $mail->isHTML(true);                                       // Set email format to HTML
